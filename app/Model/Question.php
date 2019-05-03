@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     /**
+     * Show single question with slug
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
      * Any question belongs to an user
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     /**
+     * fillable proparty request from client
+     * @var array
+     */
+    protected $fillable = ['title', 'slug', 'body', 'category_id', 'user_id'];
+
+    /**
      * Show single question with slug
      * @return string
      */
@@ -41,5 +47,14 @@ class Question extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get the slug full path
+     * @return string
+     */
+    public function getPathAttribute()
+    {
+        return asset("api/question/$this->slug");
     }
 }

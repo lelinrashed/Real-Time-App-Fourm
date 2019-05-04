@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Reply extends Model
 {
     /**
+     * fillable property
+     * @var array
+     */
+    protected $fillable = ['body', 'question_id', 'user_id'];
+
+    /**
      * Every replay belongs to a single question
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
